@@ -1,0 +1,30 @@
+<div>
+  <app-database></app-database>
+</div>
+<br>
+<div class='searchBill'>
+  <app-display-bill></app-display-bill>
+</div>
+
+
+<div class='myflex-container'>
+  <div class="column1">
+    <mat-card class='mymatcard'>
+
+      <button mat-raised-button class="raised-button" color="primary" (click)="onPrint()">Print Info Data Items</button>
+
+      <button mat-raised-button class="raised-button" color="primary" (click)="onPrint()">Print Billing Records</button>
+
+    </mat-card>
+  </div>
+
+  <div class="row">
+    <div class="column2">
+      <app-download></app-download>
+    </div>
+    <div class="column3">
+      <app-upload></app-upload>
+    </div>
+  </div>
+</div>
+

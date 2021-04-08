@@ -1,0 +1,84 @@
+<h1 class='toolbarheader'>
+  Info Data Items
+</h1>
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<div class="row">
+
+  <div class="column1">
+    <app-search (messageSearchEvent)='receiveSearchMessage($event)'
+                (sendSearchCriteria)='receiveSearchCriteria($event)'></app-search>
+  </div>
+
+  <div class="column2">
+
+    <mat-card class="matcard">
+      <div class="matformfield">
+          <mat-form-field appearance="fill">
+            <mat-label>Input Tree</mat-label>
+            <input matInput [(ngModel)]="searchKey" placeholder="Filter on Specific Values" (keyup)="applyFilter()" class="searchControl">
+          </mat-form-field>
+
+        <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+
+          <ng-container matColumnDef="areaid">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Area No. </th>
+              <td class="areaid"
+                  *matCellDef="let element"> {{element.areaid}} </td>
+          </ng-container>
+
+                    <ng-container matColumnDef="areas">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Areas </th>
+              <td class="areas"
+                  *matCellDef="let element"> {{element.name}} </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedTreeColumns" ></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedTreeColumns;" (click)="getArea(row)"[style.background]="highlightedRows.indexOf(row) != -1 ? 'lightgrey' : ''"></tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+      </div>
+    </mat-card>
+  </div>
+
+  <div class="column3">
+    <mat-card class="matcard1">
+      <div class="matformfield">
+          <mat-form-field appearance="fill">
+            <mat-label>Input Meter</mat-label>
+            <input matInput [(ngModel)]="searchKey" placeholder="Filter on Specific Values" (keyup)="applyFilter()" class="searchControl">
+          </mat-form-field>
+
+        <table mat-table [dataSource]="dataSource1" matSort class="mat-elevation-z8">
+
+          <ng-container matColumnDef="recordIndicator">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Record Indicator </th>
+          <td mat-cell class="recordIndicator" *matCellDef="let element"> {{element.recordIndicator}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="nmi" >
+              <th mat-header-cell *matHeaderCellDef mat-sort-header class="nmi"> NMI </th>
+              <td mat-cell  *matCellDef="let element"> {{element.nmi}} <td>
+            </ng-container>
+
+            <ng-container matColumnDef="meterserialnumber">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header class="meterserialnumber"> Meter Serial No. </th>
+              <td mat-cell  *matCellDef="let element"> {{element.meterserialnumber}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="intervallength">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Interval </th>
+              <td mat-cell class="intervallength" *matCellDef="let element"> {{element.intervallength}} </td>
+            </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let rowMeter; columns: displayedColumns;" (click)="getMeter(rowMeter)"[style.background]="highlightedMeterRows.indexOf(rowMeter) != -1 ? 'lightgrey' : ''"></tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+      </div>
+    </mat-card>
+  </div>
+</div>

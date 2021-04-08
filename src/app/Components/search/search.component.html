@@ -1,0 +1,93 @@
+<div id='search'>
+
+<mat-sidenav-container >
+
+
+
+<div class=toolbarheader >
+  Search Criteria
+</div>
+
+
+  <mat-form-field class='myfield'>
+
+          <input matInput value="Report Name" class="myinput" (keyup)=getName($event) >
+  </mat-form-field>
+
+<mat-form-field class='dropdown'>
+  <mat-select multiple placeholder='Device Type'
+                [(ngModel)]='selectedDeviceTypes'
+                (ngModelChange)='selectChangeHandler($event)'>
+
+    <mat-option *ngFor="let DeviceType of deviceType$ | async" [value]='DeviceType.meterserialnumber'>
+      {{DeviceType.meterserialnumber}}
+    </mat-option>
+
+  </mat-select>
+
+
+</mat-form-field>
+
+
+  <mat-form-field class='myfield'>
+    <div>
+    <mat-label class="device-label"> Start Device</mat-label>
+    </div>
+          <input matInput value="0000000" class="myinput" (keyup)=getStartVal($event) >
+  </mat-form-field>
+
+
+  <mat-form-field class='myfield'>
+    <div>
+    <mat-label class="device-label">End Device</mat-label>
+    </div>
+    <div>
+          <input matInput value="1111111" class="myinput" (keyup)=getEndVal($event) >
+    </div>
+  </mat-form-field>
+
+
+<div class='form-group'>
+  <label class='date' for='startDate'> Start Date</label>
+  <input id='startDate' name='startDate' [(ngModel)] = 'startDate' (ngModelChange)='selectStartDateHandler($event)'
+         type='text' bsDatepicker class='form-control'>
+</div>
+
+
+<div class='form-group' >
+  <label class='date' for='endDate'> End Date</label>
+  <input id='endDate' name='endDate' [(ngModel)] = 'endDate' (ngModelChange)='selectEndDateHandler($event)'
+         type='text' bsDatepicker class='form-control'>
+</div>
+
+<div style="text-align:center">
+
+    <button  class=updateButton (click)="clickEvent()" >
+    Search</button>
+<!--  <h2>{{msg}}</h2> -->
+ </div>
+<br>
+ <div style="text-align:center">
+
+    <button  class=updateButton (click)="storeSearchCriteria()" >
+    Store Report</button>
+<!--  <h2>{{msg}}</h2> -->
+ </div>
+
+ <br>
+ <div style="text-align:center">
+
+    <button  class=updateButton (click)="print()" >
+    Print Report</button>
+<!--  <h2>{{msg}}</h2> -->
+ </div>
+
+
+</mat-sidenav-container>
+
+
+
+</div>
+
+
+

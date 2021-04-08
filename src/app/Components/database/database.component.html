@@ -1,0 +1,117 @@
+<h1 class='toolbarheader'>
+  Info Data Items
+</h1>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<div class="row">
+
+  <div class="column1">
+    <app-search (messageSearchEvent)='receiveSearchMessage($event)'></app-search>
+  </div>
+
+<div class="column2">
+
+<mat-card class="matcard">
+  <div class="matformfield">
+    <mat-form-field appearance="fill">
+      <mat-label>Input</mat-label>
+      <input matInput [(ngModel)]="searchKey" placeholder="Filter on Specific Values" (keyup)="applyFilter()" class="searchControl">
+    </mat-form-field>
+
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+    <ng-container matColumnDef="recordIndicator">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Record Inidcator </th>
+    <td mat-cell class="recordIndicator" *matCellDef="let element"> {{element.recordIndicator}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="nmi">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> NMI </th>
+        <td mat-cell class="nmi" *matCellDef="let element"> {{element.nmi}} <td>
+      </ng-container>
+
+      <ng-container matColumnDef="nmiconfiguration">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> NMI Config. </th>
+        <td mat-cell class="nmiconfiguration" *matCellDef="let element"> {{element.nmiconfiguration}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="registerid">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Reg. Id </th>
+        <td mat-cell class="registerid" *matCellDef="let element"> {{element.registerid}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="nmisuffix">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> NMI Suffix </th>
+        <td mat-cell class="nmisuffix" *matCellDef="let element"> {{element.nmisuffix}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="nmistreamidentifier">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> NMI Stream Id. </th>
+        <td mat-cell class="nmistreamidentifier" *matCellDef="let element"> {{element.nmistreamidentifier}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="meterserialnumber">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Meter Serial No. </th>
+        <td mat-cell class="meterserialnumber" *matCellDef="let element"> {{element.meterserialnumber}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="uom">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> UOM </th>
+        <td mat-cell class="uom" *matCellDef="let element"> {{element.uom}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="intervallength">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Interval </th>
+        <td mat-cell class="intervallength" *matCellDef="let element"> {{element.intervallength}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="nextscheduledread">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Interval </th>
+        <td mat-cell class="nextscheduledread" *matCellDef="let element"> {{element.nextscheduledread}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="fromparticipant">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> From Particiapant </th>
+        <td mat-cell class="fromparticipant" *matCellDef="let element"> {{element.fromparticipant}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="toparticipant">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> To Participant </th>
+      <td mat-cell class="toparticipant" *matCellDef="let element"> {{element.toparticipant}} </td>
+      </ng-container>
+
+                  <ng-container matColumnDef="delete">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header class='columnHeader'> Delete </th>
+              <td mat-cell class="delete" *matCellDef="let element">
+                <button mat-icon-button>
+                  <mat-icon (click)='delete(element.nmi)'>delete</mat-icon>
+                </button>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="update">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header class='columnHeader'> Update </th>
+              <td mat-cell class="update" *matCellDef="let element">
+                <button class=button2 mat-icon-button>
+                  <mat-icon (click)='update(element.nmi)'>update</mat-icon>
+                </button>
+              </td>
+            </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+</table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>
+
+
+
+
+      </mat-card>
+</div>
+</div>
+
+

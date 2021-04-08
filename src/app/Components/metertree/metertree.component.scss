@@ -1,0 +1,98 @@
+h1.toolbarheader {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+mat-toolbar.mattoolbar {
+    font-size: 15px;
+}
+
+mat-card.matcard {
+    background-color: rgb(224, 236, 236);
+    height: 575px;
+    display: flex;
+}
+
+mat-card.matcard1 {
+    background-color: rgb(224, 236, 236);
+    height: 575px;
+    display: flex;
+}
+
+.paginator {
+    width: 430px;
+}
+
+input.input {
+    text-align: center;
+}
+
+span.spanclass1 {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+span.spanclass2 {
+    position: absolute;
+    right: 0;
+    width: 120px;
+}
+
+.column1 {
+    float: left;
+    width: 160px;
+    height: 600px;
+    margin-left: 70px;
+}
+
+.column2 {
+    position: absolute;
+    margin-left: 270px;
+    display: flex;
+    flex-wrap: nowrap;
+    margin-right: 25px;
+    min-width: 500px;
+    max-width: 1180px;
+    height: 520px;
+}
+
+.column3 {
+    position: absolute;
+    margin-left: 920px;
+    display: flex;
+    flex-wrap: nowrap;
+    margin-right: 25px;
+    min-width: 510px;
+    max-width: 780px;
+    height: 520px;
+    background-color: aquamarine;
+}
+
+.table {
+    width: 700px;
+    height: 700px;
+    margin-top: 10px;
+    display: flex;
+    min-width: 300px;
+    background-color: rgb(243, 212, 39);
+}
+
+.areas {
+    width: 500px;
+    text-align: left;
+}
+
+.areaid {
+    text-align: center;
+    width: 100px;
+}
+
+.nmi {
+    width: 170px;
+}
+
+.meterserialnumber {
+    width: 220px;
+}

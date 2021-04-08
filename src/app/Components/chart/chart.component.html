@@ -1,0 +1,55 @@
+<div class="grid" id="element-to-export">
+  <div>
+    <app-metertree
+          (removeArea)="onAreaRemove($event)"
+      (addArea)="onAreaAdd($event)"
+      (removeMeter)="onMeterRemove($event)"
+      (addMeter)="onMeterAdd($event)"
+      (addReportCriteria)='receiveReportCriteria($event)'>
+    </app-metertree>
+  </div>
+
+  <div class="column1">
+    <app-display  (messageEventDisplayChart)='receiveMessageDisplayChart($event)'
+                  (messageEventBatch)='receiveMessageBatch($event)'>
+    </app-display>
+  </div>
+  <div class="column2">
+    <div class="mycanvas100">
+      <canvas id="mycanvas100"></canvas>
+    </div>
+    <div class="slider">
+      <ngx-slider
+        [(value)]="minValue"
+        [(highValue)]="maxValue"
+
+        (highValueChange)="onSelect($event)"
+
+        [options]="options"
+        class="slider">
+      </ngx-slider>
+    </div>
+
+    <div class="mycanvas200">
+      <canvas id="mycanvas200"></canvas>
+    </div>
+  </div>
+  
+  <div class="mycanvas300">
+    <div class="mycanvas400">
+      <canvas id="mycanvas400"></canvas>
+    </div>
+    <div class="mycanvas400">
+      <canvas id="mycanvas500"></canvas>
+    </div>
+    <div class="mycanvas400">
+      <canvas id="mycanvas600"></canvas>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+

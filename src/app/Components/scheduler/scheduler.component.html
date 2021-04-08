@@ -1,0 +1,91 @@
+
+<link rel="stylesheet" href="scheduler.component.scss" media="print"/>
+
+<mat-sidenav-container>
+
+
+
+<div class=toolbarheader>
+  Schedule
+</div>
+<mat-form-field class='dropdown'>
+  <mat-select multiple placeholder='Device Type'
+                [(ngModel)]='selectedDeviceType'
+                (ngModelChange)='selectDeviceTypeChangeHandler($event)'>
+
+    <mat-option *ngFor="let device of deviceTypes" [value]='device.item'>
+      {{device.item}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<br>
+  <mat-form-field class='myfield'>
+    <div>
+    <mat-label class="device-label"> Start Device</mat-label>
+    </div>
+          <input matInput value="0000000" class="myinput" (keyup)=getStartVal($event) >
+  </mat-form-field>
+  <br>
+
+  <mat-form-field class='myfield'>
+    <div>
+    <mat-label class="device-label">End Device</mat-label>
+    </div>
+    <div>
+          <input matInput value="1111111" class="myinput" (keyup)=getEndVal($event) >
+    </div>
+  </mat-form-field>
+<br>
+  <mat-form-field class='myfield'>
+    <div>
+    <mat-label class="schedule-label">Schedule Name</mat-label>
+    </div>
+    <div>
+          <input matInput value="1111111" class="myinput" (keyup)=getScheduleName($event) >
+    </div>
+  </mat-form-field>
+<br>
+<br>
+<div class='form-group'>
+  <label class='date' for='startDate'> Start Date</label>
+  <input id='startDate' name='startDate' [(ngModel)] = 'startDate' (ngModelChange)='selectStartDateHandler($event)'
+         type='text' bsDatepicker class='form-control'>
+</div>
+
+
+<div class='form-group'>
+  <label class='date' for='enddate'> End Date</label>
+  <input id='enddate' name='enddate' [(ngModel)] = 'enddate' (ngModelChange)='selectEndDateHandler($event)'
+         type='text' bsDatepicker class='form-control'>
+</div>
+
+<mat-form-field class='dropdown'>
+  <mat-select placeholder='Frequency'
+                [(ngModel)]='selectedFrequency'
+                (ngModelChange)='selectFreqChangeHandler($event)'>
+
+    <mat-option *ngFor="let freq of frequencyValues" [value]='freq.value'>
+      {{freq.value}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<br>
+<div style="text-align:center">
+    <button  class=updateButton (click)="clickEvent()" >
+    Store Schedule</button>
+ </div>
+ <br>
+<div style="text-align:center">
+    <button  class=updateButton (click)="print()" >
+    Print Report</button>
+</div>
+</mat-sidenav-container>
+
+
+
+
+
+
+

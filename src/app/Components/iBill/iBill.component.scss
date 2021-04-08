@@ -1,0 +1,30 @@
+.pdfViewer {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-top: 10px;
+    background-color: rgb(224, 236, 236);
+    min-width: 1165px;
+    max-width: 1360px;
+    margin-left: 55px;
+}
+
+.column1 {
+    margin-left: 0px;
+    margin-right: 50px;
+    float: left;
+    width: 150px;
+}
+
+.column2 {
+    margin-left: 20px;
+    float: right;
+    width: 150px;
+}
+
+.row {
+    height: 0px;
+}
+
+.searchBill {
+    margin-left: 0px;
+}

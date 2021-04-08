@@ -1,0 +1,64 @@
+<div class='report' id='newtest1' >
+  <mat-card class=matcard>
+      <div class="matformfield">
+        <mat-form-field appearance="fill">
+          <mat-label>Input Stored Reports</mat-label>
+          <input matInput [(ngModel)]="searchKey" placeholder="Filter on Specific Values" (keyup)="applyFilter()" class="searchControl">
+        </mat-form-field>
+
+        <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+          <ng-container matColumnDef="schedulename">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header class='columnHeader'> Schedule Name </th>
+          <td mat-cell class="recordIndicator" *matCellDef="let element"> {{element.directory}} </td>
+            </ng-container>
+
+          <ng-container matColumnDef="filename">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header class='columnHeader'> File Name </th>
+              <td mat-cell class="registerid" *matCellDef="let element"> {{element.name}} </td>
+          </ng-container>
+
+            <ng-container matColumnDef="datecreated">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header class='columnHeader'> Date Created </th>
+              <td mat-cell class="datecreated" *matCellDef="let element"> {{element.datecreated}} <td>
+            </ng-container>
+
+            <ng-container matColumnDef="nmiconfiguration">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header class='columnHeader'> Start Date Series</th>
+              <td mat-cell class="nmiconfiguration" *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="nmisuffix">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header class='columnHeader'> Frequency </th>
+              <td mat-cell class="nmisuffix" *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+            <ng-container matColumnDef="delete">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header class='columnHeader1'> Delete </th>
+              <td mat-cell class="delete" *matCellDef="let element">
+                <button class=button2 mat-icon-button>
+                  <mat-icon (click)='deleteReport(element.name)'>delete</mat-icon>
+                </button>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="view">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header class='columnHeader1'> Download </th>
+              <td mat-cell class="view" *matCellDef="let element">
+                <button class=button2 mat-icon-button>
+                  <mat-icon (click)='viewReport(element.name)'>picture_as_pdf</mat-icon>
+                </button>
+              </td>
+            </ng-container>
+
+      </table>
+        <mat-paginator [pageSizeOptions]="[5, 10]" showFirstLastButtons></mat-paginator>
+      </div>
+
+    </mat-card>
+
+
+
+</div>

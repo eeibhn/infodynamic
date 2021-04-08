@@ -1,0 +1,12 @@
+<div class="download-box">
+<h1 class="Download-Title"> File is downloading {{value}}</h1>
+
+<mat-progress-bar class="progress-bar-style" mode ="determinate" [value]="value"></mat-progress-bar>
+<div class="inputstyle">
+  <input type='file' (change)="download($event.target.files[0])">
+  </div>
+<button mat-raised-button class="raised-button" color="primary" (click)="onDownload()">Download</button>
+</div>
+
+<div>
+

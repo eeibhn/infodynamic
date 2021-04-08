@@ -1,0 +1,129 @@
+<h1 class='toolbarheader'>
+  Stored Schedules
+</h1>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<div class="row">
+
+  <div class="column1">
+    <app-scheduler (messageNewScheduleEvent)='receiveNewSchedule($event)'></app-scheduler>
+  </div>
+
+  <div class="column2">
+    <mat-card class=matcard>
+      <div class="matformfield">
+        <mat-form-field appearance="fill">
+          <mat-label>Input Saved Schedules</mat-label>
+          <input matInput [(ngModel)]="searchKey" placeholder="Filter on Specific Values" (keyup)="applyFilter()" class="searchControl">
+        </mat-form-field>
+
+        <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+<!--
+          <ng-container matColumnDef="scheduleid">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header class='columnHeader'> Schedule Id </th>
+          <td mat-cell class="scheduleid" *matCellDef="let element"> {{element.scheduleid}} </td>
+            </ng-container>
+-->
+            <ng-container matColumnDef="devicetype">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header class='columnHeader'> Device Type </th>
+              <td mat-cell class="nmi" *matCellDef="let element"> {{element.devicetype}} <td>
+            </ng-container>
+
+            <ng-container matColumnDef="startdevice">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header class='columnHeader'> Start Device </th>
+              <td mat-cell class="nmiconfiguration" *matCellDef="let element"> {{element.startdevice}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="enddevice">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header class='columnHeader'> End Device </th>
+              <td mat-cell class="registerid" *matCellDef="let element"> {{element.enddevice}} </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header class='columnHeader'> Name </th>
+              <td mat-cell class="name" *matCellDef="let element;let i =index">
+              <input type='text' (keyup)=getName($event) placeholder={{element.name}} value= {{element.name}}
+              class='form-control name'
+                      >
+               </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="startdate">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header class='columnHeaderSchedule'>Date Schedule Range</th>
+
+              <td mat-cell *matCellDef="let element; let i =index">
+              <label class='date' for='startDate'> </label>
+              <input type='text' placeholder={{element.rangedate}} bsvalue= {{element.rangedate}} (bsValueChange)="getDates($event)"
+              class='form-control datebox' bsDaterangepicker
+              [datesEnabled]="enabledDates"
+              [bsConfig]="{rangeInputFormat : 'DD.MM.YYYY', dateInputFormat: 'yyyy-MM-dd', isAnimated: true, autoUpdateInput: true}">
+               </td>
+            </ng-container>
+
+            <ng-container matColumnDef="frequency">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header class='columnHeaderFrequency'>Frequency </th>
+              <td mat-cell class="frequency" *matCellDef="let element;let i =index">
+              <input type='text' (keyup)=getFrequency($event) placeholder={{element.frequency}} value= {{element.frequency}}
+              class='form-control frequency'
+                      >
+               </td>
+            </ng-container>
+
+                  <ng-container matColumnDef="delete">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header class='columnHeaderDelete'> Delete </th>
+              <td mat-cell class="delete" *matCellDef="let element">
+                <button mat-icon-button>
+                  <mat-icon (click)='deleteSchedule(element.name)'>delete</mat-icon>
+                </button>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="update">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header class='columnHeader'> Update </th>
+              <td mat-cell class="update" *matCellDef="let element">
+                <button class=button2 mat-icon-button>
+                  <mat-icon (click)='updateSchedule(element)'>update</mat-icon>
+                </button>
+              </td>
+            </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+
+        <tr mat-row *matRowDef="let rowSchedule; columns: displayedColumns;"    (click)="getSchedules(rowSchedule)"
+        [style.background]="highlightedScheduleRows.indexOf(rowSchedule) != -1 ? 'lightgrey' : ''">
+        </tr>
+
+      </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+      </div>
+
+    </mat-card>
+  </div>
+
+
+</div >
+    <div>
+    <app-reportselector (messageEvent)='receiveNewSchedule($event)'
+                        [selectedRowNames]='selectedRows'
+                        [selectedRowName]='rowCount'
+    ></app-reportselector>
+  </div>
+
+  <br>
+
+<div>
+<app-chartcopy [selectedRowName]='selectedRow'
+[freqchanged]='scheduleUpdate'
+[frequencyChartcopy]='frequency'
+
+></app-chartcopy>
+</div>
+
+
+
+
+
+
+

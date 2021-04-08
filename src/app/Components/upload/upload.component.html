@@ -1,0 +1,12 @@
+
+<div class="upload-box">
+  <div class="input-title">
+  <h1 class="input-title" *ngIf='!message'> File is uploading {{uploadvalue}}</h1>
+  <h1 *ngIf='message'>{{message}}</h1>
+  </div>
+  <mat-progress-bar class="progress-bar-style" mode ="determinate" [value]="uploadvalue" bufferValue="66"></mat-progress-bar>
+  <div class="inputstyle">
+  <input type='file' (change)="upload($event.target.files[0])">
+  </div>
+  <button mat-raised-button class="raised-button" color="primary" (click)="onUpload()">Generate PDF</button>
+</div>

@@ -1,0 +1,38 @@
+mat-progress-bar.progress-bar-style {
+    width: 280px;
+    height: 1vh;
+    display: flex;
+    justify-content: right;
+    align-items: right;
+    margin-bottom: 10px;
+}
+
+h1.title {
+    color: black;
+    font-size: 40px;
+    text-align: left;
+}
+
+h1.Download-Title {
+    color: black;
+    text-align: left;
+    width: 180px;
+    font-size: 18px;
+}
+
+h1.input-title {
+    color: black;
+    text-align: left;
+    width: 180px;
+    font-size: 18px;
+}
+
+button.raised-button {
+    margin-top: 1rem;
+    color: black;
+    margin-bottom: 0px;
+    margin-top: 10px;
+    width: 280px;
+    height: 30px;
+    background-color: gray;
+}

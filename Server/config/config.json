@@ -1,0 +1,9 @@
+{
+    "host": "localhost",
+    "database": "MeterData1",
+    "user": "postgres",
+    "password": "postgres",
+    "port": "5432",
+
+    "destination": "./my_uploads"
+}

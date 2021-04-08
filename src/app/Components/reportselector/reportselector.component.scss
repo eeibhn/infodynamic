@@ -1,0 +1,25 @@
+mat-card.matcard {
+    background-color: rgb(224, 236, 236);
+    height: 700px;
+    display: flex;
+    max-width: 1355px;
+    min-width: 1160px;
+}
+
+.columnHeader {
+    font-size: 15px;
+    width: 290px;
+}
+
+.report {
+    margin-top: 100px;
+    margin-left: 55px;
+}
+
+.update {
+    width: 10px;
+}
+
+.delete {
+    width: 10px;
+}

@@ -1,0 +1,42 @@
+
+
+<div class='searchBill'>
+<app-display-bill></app-display-bill>
+</div>
+
+
+
+    <pdf-viewer [src]="pdfSrc"
+      [render-text]="true"
+      [page]="page"
+      [show-all]="false"
+      style="display: block;"
+      class=pdfViewer>
+    </pdf-viewer>
+
+<!--
+    <div>
+      <label> Pdf src </label>
+      <input (change)="onFileSelected()" type="file" id="file">
+      <input [(ngModel)]="page" type="text" id="page">
+    </div>
+-->
+<!--
+<div>
+<app-chart></app-chart>
+</div><mat-card class=matcard>
+
+    <div class='flex-container'>
+      <nav>
+        <div class="column1">
+          <app-download></app-download>
+        </div>
+        <div class="column2">
+          <app-upload></app-upload>
+        </div>
+      </nav>
+    </div>
+
+</mat-card>
+-->
+

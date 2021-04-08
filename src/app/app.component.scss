@@ -1,0 +1,21 @@
+.h1 {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-top: 330px;
+    background-color: rgb(224, 236, 236);
+    min-width: 1180px;
+    max-width: 1190px;
+}
+
+nav a.active {
+    color: rgb(105, 128, 0);
+}
+
+
+/* Clear floats after the columns */
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}

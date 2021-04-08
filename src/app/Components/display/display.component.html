@@ -1,0 +1,35 @@
+<br>
+<br>
+<p class="displayoptions">Display Options<p>
+<br>
+<div class="ptitle">
+Select the Data Collection Option</div>
+<div class="selection" *ngFor='let selected of selections'>
+<input  type='radio'
+        name='Collection Method'
+        value={{selected}}
+        (change)='radioChangeHandlerBatch($event)'
+>
+        <i>{{selected}}</i>
+</div>
+
+<!--<p><span class="mode">Collection Mode:</span><b>{{selected}}</b></p>
+-->
+<br>
+<br>
+<div class="ptitle">
+ Select one of the following Chart Options
+</div>
+<br>
+<div class="selection" *ngFor='let chartType of chartTypes'>
+<input  type='radio'
+        name='Chart Display'
+        value={{chartType}}
+        (change)='radioChangeHandlerNRT($event)'
+>
+        <i>{{chartType}}</i>
+</div>
+<br>
+<br>
+<!--<p><span>Chart Type:</span><b>{{chartType}}</b></p>
+-->
